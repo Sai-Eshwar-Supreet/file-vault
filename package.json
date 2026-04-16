@@ -1,0 +1,46 @@
+{
+  "name": "file-vault",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.cjs",
+  "scripts": {
+    "start": "node ./src/app.cjs",
+    "dev": "node --watch ./src/app.cjs",
+    "debug": "node --watch --inspect ./src/app.cjs",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev --name",
+    "prisma:deploy": "npx prisma migrate deploy",
+    "prisma:reset": "npx prisma migrate reset",
+    "prisma:studio": "npx prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sai-Eshwar-Supreet/file-vault.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sai-Eshwar-Supreet/file-vault/issues"
+  },
+  "homepage": "https://github.com/Sai-Eshwar-Supreet/file-vault#readme",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0",
+    "bcrypt": "^6.0.0",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "prisma": "^7.7.0"
+  }
+}

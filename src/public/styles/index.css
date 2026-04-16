@@ -1,0 +1,44 @@
+/* ==================== RESET ==================== */
+:root{
+    scrollbar-gutter: stable;
+}
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+svg, img{
+    display: block;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+body{
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    
+    line-height: 1.5;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
