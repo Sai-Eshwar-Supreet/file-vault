@@ -1,21 +1,17 @@
 const expressSession = require('express-session');
 const globals = require('../models/global.cjs');
-const PgStore = require('connect-pg-simple')(expressSession);
-const { Pool } = require('pg');
+const {PrismaSessionStore} = require('@quixo3/prisma-session-store')
+const prisma = require('./prisma.cjs');
 
 function configureSession(app){
 
-    const pool = new Pool({
-        connectionString: globals.DATABASE_URL,
-    });
-
-    const store = new PgStore({
-        pool,
-        tableName: 'user_session',
-        createTableIfMissing: true,
+    const store = new PrismaSessionStore(prisma, {
+        checkPeriod: 15 * 60 * 1000, //ms
+        dbRecordIdIsSessionId: true,
     });
 
     const cookie = {
+        maxAge: 24 * 60 * 60 * 1000 , //ms
         secure: globals.IS_PRODUCTION,
         httpOnly: true,
         sameSite: 'lax'
