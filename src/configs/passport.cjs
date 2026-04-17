@@ -5,19 +5,22 @@ const bcrypt = require('bcrypt');
 
 
 function configurePassport(app){
-    const strategy = new LocalStrategy( async (username, password, done) => {
+    const strategy = new LocalStrategy({passReqToCallback: true} ,async (req, username, password, done) => {
         try{
+            if(!req.validated) throw new Error('Validation middleware missing');
+
+            const {username: safeUsername, password: safePassword} = req.validated;
             const user = await prisma.user.findUnique({
-                where:{username}
+                where:{username: safeUsername}
             });
     
             if(!user) return done(null, false);
     
-            const match = await bcrypt.compare(password, user.passwordHash);
+            const match = await bcrypt.compare(safePassword, user.passwordHash);
     
             if(!match) return done(null, false);
     
-            done(null, user);
+            return done(null, user);
         }
         catch(err){
             done(err);
