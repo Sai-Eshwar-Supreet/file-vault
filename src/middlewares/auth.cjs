@@ -1,6 +1,6 @@
 function isGuest(req, res, next){
     if(req.isAuthenticated()){
-        return res.redirect('/home');
+        return res.redirect('/');
     }
 
     next();

@@ -17,8 +17,11 @@ require('./configs/passport.cjs')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 
+require('./configs/local-globals.cjs')(app);
+
 // ==================== ROUTING ====================
 app.use('/', require('./routes/indexRouter.cjs'));
+app.use('/', require('./routes/authRouter.cjs'));
 
 app.use((req,res, next) => {
     next(Object.assign(new Error('Path not found'), {status: 404}));
