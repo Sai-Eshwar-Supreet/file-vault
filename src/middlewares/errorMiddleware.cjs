@@ -5,6 +5,7 @@ function errorMiddleware(err, req, res, next){
         return next(err);
     }
 
+    console.error(err);
     res.status(err.status || 500).render('pages/error', {
         errMessage: globals.IS_PRODUCTION ?  'Something seems to be broken!' : err.message 
     });
