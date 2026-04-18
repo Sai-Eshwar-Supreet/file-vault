@@ -25,8 +25,6 @@ const globals = {
     IS_PRODUCTION, 
     SESSION_SECRET, 
     SALT_ROUNDS,
-    GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET,
 };
 
 module.exports = globals;
