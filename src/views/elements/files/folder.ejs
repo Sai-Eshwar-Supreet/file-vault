@@ -1,0 +1,5 @@
+<%
+    const {folder} = locals;
+%>
+
+<%- include('./tileRow', {name: folder.name, createdAt: folder.createdAt, href = `/folders/${folder.id}` }) %>

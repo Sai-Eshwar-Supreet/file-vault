@@ -1,0 +1,11 @@
+<%
+    const {folders = []} = locals;
+%>
+
+<section class="tile-container">
+    <%- include('../../elements/files/tileRow', {name: 'Name', size: 'Size', createdAt: 'Created'}) %>
+
+    <% folders.forEach(folder => {%>
+        <%- include('../../elements/files/folder', {folder}) %>
+    <%})%>
+</section>

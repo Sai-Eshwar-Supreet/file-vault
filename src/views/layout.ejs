@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <%- include('./elements/head') %>
+<html lang="en">
+    <%- include('./elements/layouts/head') %>
     <body>
-        <%- include('./elements/header') %>
+        <%- include('./elements/layouts/header') %>
         
         <main class="main">
             <div class="main-container">
                 <%- body %>
             </div>
         </main>
-
-        <%- include('./elements/footer') %>
+        
+        <%- include('./elements/layouts/footer') %>
+        
+        <%- script %>
     </body>
 </html>

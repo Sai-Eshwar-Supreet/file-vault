@@ -1,0 +1,16 @@
+<%
+    const {name, size = '--', createdAt, href } = locals;
+%>
+<% if(href){ %>
+    <a class="tile-row" href=<%= href  %>>
+        <p><%= name %></p>
+        <p><%= size %></p>
+        <p><%= createdAt %></p>
+    </a>
+<%}else{%>
+    <div class="tile-row">
+        <p><%= name %></p>
+        <p><%= size %></p>
+        <p><%= createdAt %></p>
+    </div>
+<%}%>
